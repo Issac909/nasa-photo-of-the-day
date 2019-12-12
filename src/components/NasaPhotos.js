@@ -4,12 +4,13 @@ import NasaCard from "./NasaCard";
 
 export default function MarsPhotos() {
   const [photo, setPhoto] = useState([]);
-  
+  console.log(photo);
+
   useEffect(() => {
     axios
-    .get(`https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=2&api_key=4DJGrXo02WCAP4Ta8TkCj1sSjaY65V7xx8HVVZja`)
+    .get(`https://api.nasa.gov/planetary/apod?api_key=4DJGrXo02WCAP4Ta8TkCj1sSjaY65V7xx8HVVZja`)
     .then(response => {
-      console.log(response);
+      console.log(response.data);
       setPhoto(response.data);
     })
     .catch(err => {
@@ -19,10 +20,10 @@ export default function MarsPhotos() {
 
   return (
     <div className = "container">
-        {photo.map((pic, index) => {
-            return <NasaCard key = {index} imgUrl = {pic} date = "11/11/11" planet = "Mars" />
-        })}
+        {     
+            <NasaCard key = {photo.url} imgUrl = {photo.hdurl} date = {photo.date}  title = {photo.title} explanation ={photo.explanation} />
+        }
     </div>
           
-  )
-}
+  );
+};

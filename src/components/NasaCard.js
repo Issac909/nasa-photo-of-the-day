@@ -1,17 +1,18 @@
 import React from "react";
 
-export default NasaCard = props => {
+const NasaCard = props => {
     return (
         <div className = "photos">
-            <h2>THIS IS TEMPORARY</h2>
+            <h2>{props.title} </h2>
             <div class = "marsImage" key = {props.id}>              
-                <img className = "image" src = {props.imgUrl} alt = ""></img>
+                <img className = "image" src = {props.imgUrl} alt = "Nasa"></img>
             </div>
             <div className = "imgInfo">
-                <p>Date:{props.date}</p>
-                <p>Planet:{props.planet} </p>
-                <p>Lorem ipsum</p>
+                <p className = "date">Date: {props.date}</p>
+                <p>{props.explanation}</p>
             </div>
         </div>
     );
 };
+
+export default NasaCard;
