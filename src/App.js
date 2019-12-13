@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import MarsPhotos from "./components/NasaPhotos";
+import NasaPhotos from "./components/NasaPhotos";
 import logo from "./assets/logo.png";
+
 
 function App() {
 
@@ -10,7 +11,7 @@ function App() {
       <img className = "logo" src = {logo} alt = "Our Logo"/>
       <h1>Nasa Photo of the Day</h1>
       <div className = "container">
-          <MarsPhotos />
+          <NasaPhotos />
       </div>
     </div>
   );
